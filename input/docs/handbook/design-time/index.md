@@ -45,7 +45,7 @@ If you use regular bindings, or type-safe `{x:Bind }` markup extension available
 ```cs
 public interface IAboutViewModel : INotifyPropertyChanged
 {
-    IEnumerable<AboutSection> AboutSections { get; set; }
+    IEnumerable<AboutSectionViewModel> AboutSections { get; set; }
 
     ReactiveCommand<AboutFeed> RefreshCommand { get; set; }
 }
@@ -60,9 +60,9 @@ public class DesignTimeAboutViewModel : IAboutViewModel
   {
       AboutSections = new List<AboutSectionViewModel>
       {
-          new AboutSection {Title = "Title 1", Body = "Lorum Ipsum"},
-          new AboutSection {Title = "Title 2", Body = "Lorum Ipsum"},
-          new AboutSection {Title = "Title 3", Body = "Lorum Ipsum"}
+          new AboutSectionViewModel {Title = "Title 1", Body = "Lorum Ipsum"},
+          new AboutSectionViewModel {Title = "Title 2", Body = "Lorum Ipsum"},
+          new AboutSectionViewModel {Title = "Title 3", Body = "Lorum Ipsum"}
       });
       RefreshCommand = ReactiveCommand.CreateFromTask(o => Task.FromResult(new AboutFeed()));
   }
